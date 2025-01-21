@@ -8,7 +8,7 @@ import plotly.graph_objects as go
 # Imports remain the same as above
 
 # Add title and description
-st.title('📊 Data Analysis Application')
+st.title('Data Analysis Application📊')
 st.subheader('Explore datasets, visualize data, and gain insights!')
 
 # Create a dropdown list to choose a dataset
