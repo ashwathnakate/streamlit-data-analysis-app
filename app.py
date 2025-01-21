@@ -58,9 +58,24 @@ st.write('### Summary Statistics:')
 st.write(df.describe())
 
 # Pairplot
-st.subheader('📈 Pairplot Visualization')
-hue_column = st.selectbox('Select a column for Pairplot hue', df.columns)
-st.pyplot(sns.pairplot(df, hue=hue_column))
+# Create a pairplot
+st.subheader('Pairplot')
+# Validate if the dataset has enough numerical columns
+numeric_columns = df.select_dtypes(include=np.number).columns
+
+if len(numeric_columns) > 1:  # Ensure there are at least two numerical columns
+    hue_column = st.selectbox('Column to be used for hue (optional)', [None] + list(df.columns))
+    try:
+        # Generate pairplot with or without hue
+        if hue_column and hue_column != 'None':
+            st.pyplot(sns.pairplot(df, hue=hue_column))
+        else:
+            st.pyplot(sns.pairplot(df))
+    except Exception as e:
+        st.warning(f"Could not generate pairplot: {e}")
+else:
+    st.warning("Not enough numerical columns to create a pairplot. The dataset must have at least two numerical columns.")
+
 
 # Heatmap
 st.subheader('📊 Correlation Heatmap')
