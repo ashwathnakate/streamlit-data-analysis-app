@@ -90,4 +90,4 @@ Contributions are welcome! Feel free to:
 
 ## 👨‍💻 Author
 
-Developed with ❤️ by [Your Name](https://github.com/ashwathnakate).
+Developed with ❤️ by (https://github.com/ashwathnakate).
